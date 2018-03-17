@@ -11,7 +11,7 @@ COPY . $home
 RUN go get -v github.com/gin-gonic/gin
 
 # 编译并且生成可执行文件
-RUN go install -v main.go
+RUN go install github.com/branLiang/gin-playground
 
 # 当container运行时，默认执行编译后文件
 ENTRYPOINT /go/bin/gin-playground
