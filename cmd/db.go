@@ -3,6 +3,7 @@ package cmd
 import (
 	"fmt"
 
+	"github.com/branLiang/gin-playground/db"
 	"github.com/spf13/cobra"
 )
 
@@ -10,15 +11,19 @@ import (
 var dbCmd = &cobra.Command{
 	Use:       "db",
 	Short:     "Database action commands",
-	ValidArgs: []string{"setup"},
+	ValidArgs: []string{"setup", "remove"},
 	Args:      cobra.OnlyValidArgs,
 	Run: func(cmd *cobra.Command, args []string) {
 		if len(args) == 0 {
 			fmt.Println("Missing arguments for command db")
 			return
 		}
-		fmt.Println(args[0])
-		fmt.Println("db called")
+		if args[0] == "setup" {
+			db.Setup()
+		}
+		if args[0] == "remove" {
+			db.Remove()
+		}
 	},
 }
 
