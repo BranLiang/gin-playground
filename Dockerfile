@@ -13,5 +13,8 @@ RUN go get -v github.com/gin-gonic/gin
 # 编译并且生成可执行文件
 RUN go install -v
 
-# 运行程序
-CMD ["gin-playground"]
+# 当container运行时，默认执行编译后文件
+ENTRYPOINT /go/bin/gin-playground
+
+# 对外开放接口8080，纯文字提示这里并不真正开放接口！
+EXPOSE 8080
