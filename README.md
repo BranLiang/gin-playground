@@ -37,6 +37,10 @@ Use [database/sql](https://golang.org/pkg/database/sql/) and [pg](https://github
 
 Database has its own package called db, when db is imported its `Init` function will be called and a database connection will be made. You can retrive the database instance which is actually a pointer through `GetDB` method.
 
+### CLI
+
+[Cobra](https://github.com/spf13/cobra) is choosen as the tool for building the application commands. Reason is simply because I am more familiar with this cli framework.
+
 ### Prerequisites
 
 *** You just need docker ***
@@ -78,6 +82,8 @@ Give an example
 ## Built With
 
 * [Golang](https://golang.org/) - Main language
+* [pg](https://github.com/lib/pq) - Database driver
+* [Cobra](https://github.com/spf13/cobra) - CLI framework
 
 ## Contributing
 

@@ -10,9 +10,10 @@ COPY . $home
 # 安装环境依赖
 RUN go get -v github.com/gin-gonic/gin
 RUN go get -v github.com/lib/pq
+RUN go get -u github.com/spf13/cobra/cobra
 
 # 编译并且生成可执行文件
-RUN go install $home
+RUN go install .
 
 # 当container运行时，默认执行编译后文件
 ENTRYPOINT /go/bin/gin-playground
