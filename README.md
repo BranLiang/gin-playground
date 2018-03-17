@@ -17,7 +17,7 @@ Project is build with the power of docker. All dependencies are configured at th
 - [ ] Opinions on both unit test and integration test
 - [ ] Access Controls
 - [ ] Middlewares integration
-- [ ] Database migration
+- [ ] Database setup
 - [ ] SQL builder or better solution on database interaction
 - [ ] Third party api interaction package example
 - [ ] Secrets management
@@ -40,6 +40,8 @@ Database has its own package called db, when db is imported its `Init` function 
 ### CLI
 
 [Cobra](https://github.com/spf13/cobra) is choosen as the tool for building the application commands. Reason is simply because I am more familiar with this cli framework.
+
+* Command arguments are checked, both on argument number and name.
 
 ### Prerequisites
 

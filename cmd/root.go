@@ -13,9 +13,6 @@ import (
 var rootCmd = &cobra.Command{
 	Use:   "gin-playground",
 	Short: "Happy hacking!",
-	Long: `Aimed to be a good opinionated and fully functioned template
-                on building web app with Golang and Gin.
-                Contact author email: lby89757@hotmail.com`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("Happy coding :)")
 	},

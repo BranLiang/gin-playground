@@ -9,13 +9,7 @@ import (
 var serverCmd = &cobra.Command{
 	Use:     "server",
 	Aliases: []string{"s"},
-	Short:   "Server start",
-	Long: `A longer description that spans multiple lines and likely contains examples
-and usage of using your command. For example:
-
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+	Short:   "Start server",
 	Run: func(cmd *cobra.Command, args []string) {
 		r := gin.Default()
 		r.GET("/ping", func(c *gin.Context) {

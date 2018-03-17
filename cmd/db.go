@@ -8,15 +8,16 @@ import (
 
 // dbCmd represents the db command
 var dbCmd = &cobra.Command{
-	Use:   "db",
-	Short: "A brief description of your command",
-	Long: `A longer description that spans multiple lines and likely contains examples
-and usage of using your command. For example:
-
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+	Use:       "db",
+	Short:     "Database action commands",
+	ValidArgs: []string{"setup"},
+	Args:      cobra.OnlyValidArgs,
 	Run: func(cmd *cobra.Command, args []string) {
+		if len(args) == 0 {
+			fmt.Println("Missing arguments for command db")
+			return
+		}
+		fmt.Println(args[0])
 		fmt.Println("db called")
 	},
 }
