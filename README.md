@@ -31,6 +31,10 @@ Project is build with the power of docker. All dependencies are configured at th
 - [ ] Elastic stack for information gathering
 - [ ] Integrate API gateway service like: Kong
 
+### Database
+
+Use [database/sql](https://golang.org/pkg/database/sql/) and [pg](https://github.com/lib/pq). The decision is made because as a ruby on rails developer, I am so used to the activerecord as if I almost forgot how to use the native sql driver. The problem then comes when you want to more effciently controll your database, the ORMs normally can hardly help and they also add too much complexity on top the database layer. So I choose to not use ORM for this project as I want to get more close to my database. Here is another good article which also expresses my opinion - [golang-orms-and-why-im-still-not-using-one](http://www.hydrogen18.com/blog/golang-orms-and-why-im-still-not-using-one.html).
+
 ### Prerequisites
 
 *** You just need docker ***

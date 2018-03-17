@@ -1,5 +1,5 @@
 # 官方Golang Image
-FROM golang:alpine
+FROM golang:1.9.4
 LABEL maintainer="boyuan liang(lby89757@hotmail.com)"
 
 # 定义工作环境位置, 因为代码仓库在github上面所以配置如下
@@ -9,6 +9,7 @@ COPY . $home
 
 # 安装环境依赖
 RUN go get -v github.com/gin-gonic/gin
+RUN go get -v github.com/lib/pq
 
 # 编译并且生成可执行文件
 RUN go install $home
