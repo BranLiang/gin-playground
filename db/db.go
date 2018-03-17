@@ -25,8 +25,3 @@ func init() {
 	}
 	DB = db
 }
-
-// GetDB returns an opened database pointer
-func GetDB() *sql.DB {
-	return DB
-}

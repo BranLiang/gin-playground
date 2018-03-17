@@ -35,7 +35,7 @@ Project is build with the power of docker. All dependencies are configured at th
 
 Use [database/sql](https://golang.org/pkg/database/sql/) and [pg](https://github.com/lib/pq). The decision is made because as a ruby on rails developer, I am so used to the ActiveRecord as if I almost forgot how to use the native sql driver. The problem then comes when you want to more effciently control your database, the ORMs normally can hardly help and they also add too much complexity on top of the database layer. So I choose to not use ORM for this project as I want to get more close to my database. Here is another good article which also expresses my opinion - [golang-orms-and-why-im-still-not-using-one](http://www.hydrogen18.com/blog/golang-orms-and-why-im-still-not-using-one.html).
 
-Database has its own package called db, when db is imported its `Init` function will be called and a database connection will be made. You can retrive the database instance which is actually a pointer through `GetDB` method.
+Database has its own package called db, when db is imported its `Init` function will be called and a database connection will be made. You can retrive the database instance which is actually a pointer through `db.DB` method.
 
 ### CLI
 
