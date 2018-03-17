@@ -61,6 +61,12 @@ Running the app in detached mode.
 $ docker-compose up -d
 ```
 
+Start the server with command
+
+```shell
+$ gin-playground server
+```
+
 And check with curl
 
 ```shell
