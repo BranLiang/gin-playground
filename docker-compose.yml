@@ -2,7 +2,22 @@ version: '3'
 
 services:
 
+  pg-database:
+    image: postgres:latest
+    environment:
+      - POSTGRES_USER: postgres
+      - POSTGRES_PASSWORD: secretpassword
+      - POSTGRES_DB: gin-playground-db
+    ports:
+      - 5432:5432
+
   goapp:
     build: .
+    environment:
+      - POSTGRES_USER: postgres
+      - POSTGRES_PASSWORD: secretpassword
+      - POSTGRES_DB: gin-playground-db
+    links:
+      - pg-database
     ports:
-      - "8080:8080"
+      - 8080:8080

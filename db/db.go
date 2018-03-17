@@ -7,13 +7,9 @@ import (
 	"database/sql"
 	"fmt"
 	"log"
+	"os"
 
 	_ "github.com/lib/pq"
-)
-
-const (
-	// DbName is the postgres database name for application
-	DbName = "gin_playground_db"
 )
 
 // DB is a pointer to type sql.DB
@@ -21,7 +17,8 @@ var DB *sql.DB
 
 // Init connect the postgres database
 func Init() {
-	dbinfo := fmt.Sprintf("user=postgres password=postgres dbname=%s sslmode=disable", DbName)
+	dbinfo := fmt.Sprintf("user=%s password=%s dbname=%s sslmode=disable",
+		os.Getenv("POSTGRES_USER"), os.Getenv("POSTGRES_PASSWORD"), os.Getenv("POSTGRES_DB"))
 	db, err := sql.Open("postgres", dbinfo)
 	if err != nil {
 		log.Fatal(err)
