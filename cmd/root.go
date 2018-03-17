@@ -1,12 +1,13 @@
-// Package cli implements helper commands which adds more fun to the application.
+// Package cmd implements helper commands which adds more fun to the application.
 //
 // Command modules includes 1.Database.
-package cli
+package cmd
 
 import (
 	"fmt"
-	"github.com/spf13/cobra"
 	"os"
+
+	"github.com/spf13/cobra"
 )
 
 var rootCmd = &cobra.Command{
@@ -15,6 +16,9 @@ var rootCmd = &cobra.Command{
 	Long: `Aimed to be a good opinionated and fully functioned template
                 on building web app with Golang and Gin.
                 Contact author email: lby89757@hotmail.com`,
+	Run: func(cmd *cobra.Command, args []string) {
+		fmt.Println("Happy coding :)")
+	},
 }
 
 func Execute() {
