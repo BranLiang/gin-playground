@@ -45,6 +45,19 @@ Database commands like `db setup`, `db create/drop` or `db migrate` are not impl
 
 * Command arguments are checked, both on argument number and name.
 
+### JSON
+
+Default json encoder is `encoding/json`, you can switch the encoder by config the encoder at the build time.
+
+```shell
+$ go build -tags=jsoniter .
+```
+
+To return json just put the interface to postion `users`
+```go
+c.JSON(200, users)
+```
+
 ### Debugging
 
 [Delve](https://github.com/derekparker/delve) is choosen as the primary debugging tool. But how to use this tool? I did as follows and it works~
