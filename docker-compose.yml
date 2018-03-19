@@ -5,18 +5,16 @@ services:
   pg-database:
     image: postgres:latest
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: secretpassword
-      POSTGRES_DB: gin-playground-db
+      POSTGRES_USER: bran
+      POSTGRES_PASSWORD: password
     ports:
       - 5432:5432
 
   goapp:
     build: .
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: secretpassword
-      POSTGRES_DB: gin-playground-db
+      POSTGRES_USER: bran
+      POSTGRES_PASSWORD: password
     links:
       - pg-database
     ports:

@@ -15,10 +15,14 @@ import (
 // DB is a pointer to type sql.DB
 var DB *sql.DB
 
-// Init connect the postgres database
+const (
+	DATABASE_NAME = "gin_playground"
+)
+
+// init connect the postgres database
 func init() {
 	dbinfo := fmt.Sprintf("user=%s password=%s dbname=%s sslmode=disable",
-		os.Getenv("POSTGRES_USER"), os.Getenv("POSTGRES_PASSWORD"), os.Getenv("POSTGRES_DB"))
+		os.Getenv("POSTGRES_USER"), os.Getenv("POSTGRES_PASSWORD"), DATABASE_NAME)
 	db, err := sql.Open("postgres", dbinfo)
 	if err != nil {
 		log.Fatal(err)

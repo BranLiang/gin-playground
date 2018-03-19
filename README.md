@@ -35,7 +35,9 @@ Project is build with the power of docker. All dependencies are configured at th
 
 Use [database/sql](https://golang.org/pkg/database/sql/) and [pg](https://github.com/lib/pq). The decision is made because as a ruby on rails developer, I am so used to the ActiveRecord as if I almost forgot how to use the native sql driver. The problem then comes when you want to more effciently control your database, the ORMs normally can hardly help and they also add too much complexity on top of the database layer. So I choose to not use ORM for this project as I want to get more close to my database. Here is another good article which also expresses my opinion - [golang-orms-and-why-im-still-not-using-one](http://www.hydrogen18.com/blog/golang-orms-and-why-im-still-not-using-one.html).
 
-Database has its own package called db, when db is imported its `Init` function will be called and a database connection will be made. You can retrive the database instance which is actually a pointer through `db.DB` method.
+Database has its own package called db, when db is imported its `init` function will be called and a database connection will be made. You can retrive the database instance which is actually a pointer through `db.DB` method.
+
+Database commands like `db setup`, `db create/drop` or `db migrate` are not implemented for the moment, because the migration function is a heavy wrapper on top the database layer, The responsiblity if left for the user to properly maintain the database schema. My aim for this project is not to introduce a lot new commands which could lead to harder maintaince but a simple glue for modules.
 
 ### CLI
 
@@ -74,6 +76,36 @@ And check with curl
 ```shell
 curl -i -X GET http://localhost:8080/ping
 ```
+
+## Development
+
+Create the database
+
+```shell
+$ psql
+psql (10.1)
+Type "help" for help.
+
+bran=# CREATE DATABASE gin_playground;
+bran=# \q
+```
+
+Install the extension [pgcrypto](https://starkandwayne.com/blog/uuid-primary-keys-in-postgresql/) for UUID usage
+
+```shell
+$ psql gin_playground
+psql (10.1)
+Type "help" for help.
+
+gin_playground=# CREATE EXTENSION pgcrypto;
+gin_playground=# \q
+```
+
+Load the setup tables from `db/schema.sql`
+```shell
+$ psql -f ./db/schema.sql gin_playground
+```
+
 
 ## Running the tests
 
