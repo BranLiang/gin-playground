@@ -15,7 +15,7 @@ func RouterRegister(r *gin.RouterGroup) {
 // ListUsers return users
 func ListUsers(c *gin.Context) {
 	users := make([]User, 0)
-	rows, err := db.DB.Query("SELECT * FROM users LIMIT 10")
+	rows, err := db.DB.Query("SELECT id, name FROM users LIMIT 10")
 	defer rows.Close()
 	if err != nil {
 		log.Fatal(err)
@@ -32,7 +32,7 @@ func ListUsers(c *gin.Context) {
 
 func ListUserIds(c *gin.Context) {
 	users := make([]UserSimpleSerializer, 0)
-	rows, err := db.DB.Query("SELECT * FROM users LIMIT 10")
+	rows, err := db.DB.Query("SELECT id FROM users LIMIT 10")
 	defer rows.Close()
 	if err != nil {
 		log.Fatal(err)
