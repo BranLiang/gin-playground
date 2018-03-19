@@ -45,6 +45,44 @@ Database commands like `db setup`, `db create/drop` or `db migrate` are not impl
 
 * Command arguments are checked, both on argument number and name.
 
+### Debugging
+
+[Delve](https://github.com/derekparker/delve) is choosen as the primary debugging tool. But how to use this tool? I did as follows and it works~
+
+First, install your package or just build it. Then start your server.
+
+```shell
+$ gin_playground server
+```
+
+Check your server PID.
+
+```shell
+$ ps | grep gin-playground
+22249 ttys005    0:00.03 gin-playground s
+```
+
+Start the debugging session attached on your running process.
+
+```shell
+$ dlv attach 22249
+```
+
+Add a breakpoint on your functions you interested.
+
+```shell
+$ break users.ListUsers
+$ continue
+```
+
+Run your program until the breakpoint is reached
+
+```shell
+$ curl http://localhost:8080/api/users
+```
+
+Profit!
+
 ### Prerequisites
 
 *** You just need docker ***

@@ -18,13 +18,14 @@ func RouterRegister(r *gin.RouterGroup) {
 func ListUsers(c *gin.Context) {
 	users := []User{}
 	rows, err := db.DB.Query("SELECT * FROM users LIMIT 10")
+	defer rows.Close()
 	if err != nil {
 		log.Fatal(err)
 	}
 
 	for rows.Next() {
 		var user User
-		rows.Scan(&user.id, &user.name)
+		rows.Scan(&user.Id, &user.Name)
 		users = append(users, user)
 	}
 	usersJson, _ := json.Marshal(&users)
