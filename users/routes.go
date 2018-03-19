@@ -28,8 +28,11 @@ func ListUsers(c *gin.Context) {
 		rows.Scan(&user.Id, &user.Name)
 		users = append(users, user)
 	}
-	usersJson, _ := json.Marshal(&users)
+	usersJson, err := json.MarshalToString(&users)
+	if err != nil {
+		log.Fatal(err)
+	}
 	c.JSON(200, gin.H{
-		"data": usersJson,
+		"data": string(usersJson),
 	})
 }
