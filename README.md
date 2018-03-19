@@ -17,8 +17,8 @@ Project is build with the power of docker. All dependencies are configured at th
 - [ ] Opinions on both unit test and integration test
 - [ ] Access Controls
 - [ ] Middlewares integration
-- [ ] Database setup
-- [ ] SQL builder or better solution on database interaction
+- [x] Database setup
+- [x] SQL builder or better solution on database interaction
 - [ ] Third party api interaction package example
 - [ ] Secrets management
 - [ ] RPC
