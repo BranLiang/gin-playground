@@ -11,6 +11,7 @@ COPY . $home
 RUN go get -v github.com/gin-gonic/gin
 RUN go get -v github.com/lib/pq
 RUN go get -u github.com/spf13/cobra/cobra
+RUN go get -v github.com/json-iterator/go
 
 # 编译并且生成可执行文件
 RUN go install .
